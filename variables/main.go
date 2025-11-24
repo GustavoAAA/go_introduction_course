@@ -115,27 +115,38 @@ func main() {
 	//Esto es un scope, osea que lo que yo defina aqui adentro solo sirve aqui adentro, no sirve en otra parte del código
 	{
 		// conversiones
+		//Convertir de decimal a texto
 		fmt.Println()
 		floatVar := 33.11
 		fmt.Printf("type: %T, value: %f\n", floatVar, floatVar)
 		floatStrVar := fmt.Sprintf("%.2f", floatVar)
 		fmt.Printf("type: %T, value: %s\n", floatStrVar, floatStrVar)
 
+		//Convertir de int a texto
 		intVar := 22
 		fmt.Printf("type: %T, value: %d\n", intVar, intVar)
 		intStrVar := fmt.Sprintf("%d", intVar)
 		fmt.Printf("type: %T, value: %s\n", intStrVar, intStrVar)
 
+		//Convertir de texto a int64
 		intVal1, err := strconv.ParseInt("1333", 0, 64)
 		fmt.Println(err)
 		fmt.Printf("type: %T, value: %d\n", intVal1, intVal1)
 
+		//Convertir de texto a int64, en este caso simulando un error
 		intVal2, err := strconv.ParseInt("aa122", 0, 64)
 		fmt.Println(err)
 		fmt.Printf("type: %T, value: %d\n", intVal2, intVal2)
 
+		//Convertir texto a decimal, el 64 es el tamaño
+		//Se omite el error poniendo el "_"
 		floatVar1, _ := strconv.ParseFloat("-11.2", 64)
 		fmt.Printf("type: %T, value: %f\n", floatVar1, floatVar1)
+
+		//Convertir de decimal a texto
+		myFloatToText := strconv.FormatFloat(3.1416, 'f', -1, 32)
+		// 'f': punto fijo - 'e': notación científica - 'g': elige entre 'f' y 'e' según el tamaño del número
+		fmt.Println("Convertir de decimal a texto", myFloatToText)
 
 	}
 
