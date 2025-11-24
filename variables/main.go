@@ -6,6 +6,6 @@ import (
 
 func main() {
 	var myIntVar int
-	myIntVar = -12
+	myIntVar = -11
 	fmt.Println("My variable is:", myIntVar)
 }
