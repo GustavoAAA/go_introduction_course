@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"gitub.com/GustavoAAA/go_introduction_course/07-strucstinterfaces/structsInterface/structs"
+	"gitub.com/GustavoAAA/go_introduction_course/07-strucstinterfaces/structsInterface/vehicles"
 )
 
 func main() {
@@ -92,6 +93,34 @@ func main() {
 	fmt.Println("PRODUCTS CAR")
 	fmt.Println("Total Products: ", len(car.Products))
 	fmt.Printf("Total Car: $%.2f\n", car.Total())
+	//fmt.Println()
+	//fmt.Println(car)
+
 	fmt.Println()
-	fmt.Println(car)
+	fmt.Println("Tema de interfaces")
+	fmt.Println("VEHICLES")
+
+	carV := vehicles.Car{Time: 120}
+	fmt.Println(carV.Distance())
+	fmt.Println()
+
+	vArray := []string{"CAR", "MOTORCYCLE", "TRUCK", "MOTORCYCLE", "TRUCK", "GOKU", "SARASA"}
+
+	var d float64
+	for _, v := range vArray {
+		fmt.Printf("Vehículo: %s\n", v)
+		vehi, err := vehicles.New(v, 400)
+		if err != nil {
+			fmt.Println("Error: ", err)
+			fmt.Println()
+			continue
+		}
+		distance := vehi.Distance()
+		fmt.Println("Este es el puntero:", vehi)
+		fmt.Printf("Distance: %.2f\n", distance)
+		fmt.Println()
+		d += distance
+	}
+	fmt.Printf("Total distance: %.2f\n", d)
+	fmt.Println()
 }
