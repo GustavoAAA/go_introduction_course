@@ -36,4 +36,24 @@ func main() {
 	proceso(REUNION)
 	proceso(DESCANSO)
 	proceso(SALIDA)
+
+	type Carro struct {
+		brand string
+		year  int
+	}
+
+	type Tractor struct {
+		car      Carro
+		capacity int
+	}
+
+	miCarro := Carro{
+		brand: "Chevrolet",
+		year:  2015,
+	}
+	miTractor := Tractor{
+		car:      miCarro,
+		capacity: 5,
+	}
+	fmt.Println(miTractor)
 }
